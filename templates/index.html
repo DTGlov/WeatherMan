@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container-fluid d-flex">
+                <div>
+                    <img src="/static/weio.png" alt="">
+                </div>
+                <div>
+                    <h1 class="title has-text-danger">
+                        WeatherNow
+                    </h1>
+                    <h2 class="subtitle">
+                        Get Weather Info of Cities in Real time!
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container py-5">
+
+            <form method="POST" action="/">
+                <div class="field is-grouped">
+                    <p class="control is-expanded">
+                        <input class="input" name="cityName" type="text" placeholder="Enter a City">
+                    </p>
+                    <p class="control">
+                        <button class="button is-danger">
+                                  Search
+                        </button>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical">
+                    <div class="tile">
+                        {% if city %}
+                        <div class="tile is-parent is-vertical">
+                            <article class="tile is-child notification is-dark">
+                                <p class="title">{{weather.city}}</p>
+
+
+                                <img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="image">
+
+
+                                <p class="subtitle">{{weather.temperature}}&#176C</p>
+                                <p class="subtitle">{{weather.description}}</p>
+                                <p class="subtitle"></p>
+
+                            </article>
+
+                        </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="has-background-black">
+        <div class="container-fluid">
+            <div class="row justify-content-center ali">
+                <div class="col">
+                    <p class="has-text-centered has-text-light">This Web App was created by <strong class="has-text-danger">DTGLOVER</strong> &copy 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
